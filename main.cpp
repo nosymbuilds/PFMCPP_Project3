@@ -36,52 +36,53 @@ Sub Object 1: Steering Wheel
     Name 4 things you'll find on the:    Steering Wheel
         1) paddle shifters
         2) 'cruise control' controls
-        3) 
-        4) 
+        3) horn pad
+        4) telephone audio controls
     Name 2 things you can do with the:   Steering Wheel
-        1) adjust cruise control settings.
-        2)
+        1) adjust cruise control settings
+        2) sound the horn
         
 Sub Object 2: Instrument Cluster
     Name 4 things you'll find on the:   Instrument Cluster
-        1)
-        2)
-        3)
-        4)
+        1)  speedometer
+        2)  fuel meter
+        3)  rev counter
+        4)  multi-meter
     Name 3 things you can do with the:   Instrument Cluster
-        1)
-        2)
-        3)
+        1) read the speed that you are travelling at
+        2) read how much fuel you have left in the tank
+        3) read what the temperature outside of the car is
     
 Sub Object 3: Environment Controls
     Name 3 things you'll find on the:    Environment Controls
-        1)
-        2)
-        3)
+        1)  temperature controls
+        2)  window controls
+        3)  air flow controls
     Name 3 things you can do with the:   Environment Controls
-        1)
-        2)
-        3)
+        1) turn on the heaters to increase the temperature
+        2) wind down the windows to let fresh air in
+        3) recycle the air passing through the car
 
 Sub Object 4: Infotainment System
     Name 3 things you'll find on the:    Infotainment System
-        1)
-        2)
-        3)
+        1)  satellite navigation screen
+        2)  radio controls
+        3)  audio system controls
     Name 3 things you can do with the:   Infotainment System
-        1)
-        2)
-        3)
+        1)  find the best route to a destination using the sat nav
+        2)  listen to your favourite radio station
+        3)  adjust the EQ of the audio system to have more bass
 
 Sub Object 5: Seat 
     Name 3 things you'll find on the:    Seat
-        1)
-        2)
-        3)
+        1)  adjustable arm rest
+        2)  tilt controls
+        3)  seatbelt buckle
     Name 2 things you can do with the:   Seat
-        1)
-        2)
+        1)  fasten the seatbelt
+        2)  tilt the seat backwards for more comfort
 */
+
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
