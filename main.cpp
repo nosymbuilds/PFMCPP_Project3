@@ -81,79 +81,6 @@ Part1 will be broken up into 5 separate steps
 */
 
 /*
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-
-
-
-/*
 Thing 1) Song
 5 properties:
     1) duration of the song // double
@@ -210,13 +137,83 @@ Thing 4) Synth
  */
 
 /*
+Thing 5) Seat
+5 properties:
+    1) outer material // string
+    2) inner material // string
+    3) how many riders it can seat // int
+    4) comfort rating // double
+    5) safety rating // double
+3 things it can do:
+    1) seat 2 riders at the same time
+    2) repel rain with its waterproof material
+    3) provide comfort for the rider
+ */
+
+/*
+Thing 6) Engine
+5 properties:
+    1) pistons // int
+    2) valves // int
+    3) cyclinder head manufacturer // string
+    4) quanity of oil pans // int
+    5) engine block type // string
+3 things it can do:
+    1) produce energy for the motorcycle to move
+    2) lubricate itself with oil to keep the parts moving fluidly
+    3) burn fuel
+ */
+
+/*
+Thing 7) Exhaust
+5 properties:
+    1) length in inches // double
+    2) turbocharger power // double
+    3) catalytic converters // int
+    4) muffler type // string
+    5) number of pipes // int
+3 things it can do:
+    1) increase the power of the engine using a turbocharger
+    2) reduce fumes using catalytic converters
+    3) reduce or increase the level of noise when reving the engine
+ */
+
+/*
+Thing 8) Fuel Tank
+5 properties:
+    1) capacity in litres // double
+    2) the type of fuel it can hold // string
+    3) the min amount of fuel it can hold before it starts to effect performance // double
+    4) capacity sensors // int
+    5) material // string
+3 things it can do:
+    1) notify the rider when it is low on fuel
+    2) notify the rider when the wrong type of fuel has been used
+    3) hold fuel
+ */
+
+/*
+Thing 9) Tyre
+5 properties:
+    1) type of material // string
+    2) thickness of the material // double
+    3) average lifespan in km travelled  // double
+    4) the manufacturer // string
+    5) the type of terrain the tyre is most suited for // string
+3 things it can do:
+    1) puncture
+    2) provide support for the bike
+    3) wear out over time
+ */
+
+/*
 Thing 10) Motorbike
 5 properties:
-    1) seat // string
-    2) engine // string
-    3) exhaust // string
-    4) fuel tank // string
-    5) tyre // string
+    1) seat 
+    2) engine 
+    3) exhaust 
+    4) fuel tank 
+    5) tyre
 3 things it can do:
     1) Move forwards when the throttle is pressed
     2) Stand stationary using its stand
