@@ -135,7 +135,6 @@ struct CarWash //                                   1) define an empty struct fo
     Car carBeingServiced;  
 };
 
-
 /*
 Thing 1) Song
 5 properties:
@@ -149,6 +148,42 @@ Thing 1) Song
     2) performed live at a concert
     3) be remixed by another artist
  */
+
+struct Song
+{
+    class Artist
+    {
+        std::string name = "Moby";
+        int Age = 50;
+        std::string birthPlace = "America";
+        int yearsActive = 25;
+        std::string mostPopularSong = "Porcelain";
+
+        void performSongLive(bool tour = true);
+        void recordSongInTheStudio(bool recordAlbum);
+        void promoteSong(int numberOfInterviews, bool tvAppearances);
+    };
+
+    Artist artistA;
+
+    // duration of the song
+    int duration = 5;
+    // tempo of the song
+    int tempo = 125;
+    // key of the song
+    char key = 'a';
+    // number of artists performing on the song
+    int numOfPerformingArtists = 4;
+    // record label that released the song
+    std::string recordLabel = "Virgin";
+    
+    // play song on the radio
+    void playSongOnRadio(int duration, int tempo);
+    // perform song live at a concert
+    void performSongLiveAtConcert(Artist artistB);
+    // remix the song
+    void remix(std::string title, Artist artistC, std::string recordLabel);
+};
 
 /*
 Thing 2) Sandwich
@@ -164,6 +199,27 @@ Thing 2) Sandwich
     3) go moldy if left uneaten
  */
 
+struct Sandwich
+{
+    // type of bread
+    std::string bread = "brown";
+    // type of fillings
+    std::string fillings = "meat";
+    // amount of different fillings
+    int numOfFillings = 2;
+    // condiment used
+    std::string condiment = "mayo";
+    // number of calories
+    int calories = 600;
+
+    // cause foodpoisoning
+    void foodPoisoning(std::string fillings = "uncooked chicken");
+    // provide a satisfying meal
+    void satisfyingMeal(int calories);
+    // go moldy if left uneaten
+    void moldy(int daysWithoutStorage);
+};
+
 /*
 Thing 3) Soccer Team
 5 properties:
@@ -177,6 +233,40 @@ Thing 3) Soccer Team
     2) win a game
     3) move up the league table
  */
+
+struct SoccerTeam
+{
+    class Manager
+    {
+        std::string name = "Pep Gaurdiola";
+        int Age = 48;
+        std::string birthPlace = "Spain";
+        int yearsActive = 15;
+        int numberOfTeamsManaged = 3;
+
+        void trainTeam(std::string nameOfCoach, bool deligateTrainingSession);
+        void signNewPlayers(std::string market, int age, std::string playerPosition);
+        void speakToThePress(bool attendPressConference = true);
+    };
+
+    // number of players in squad
+    int squadPlayers = 24;
+    // average age of players in squad
+    int averageAge = 28;
+    // number of total goals scored by the team
+    int totalGoalsScored = 60;
+    // number of matches in the season
+    int numOfMatchesToPlay = 38;
+    // league position
+    int leaguePosition = 4;
+
+    // train their skills
+    void trainingSession(Manager managerA);
+    // win a game
+    void winMatch(bool motivated);
+    // move up the league table
+    void changeLeaguePosition(int pointsAccquired);
+};
 
 /*
 Thing 4) Synth
@@ -192,6 +282,27 @@ Thing 4) Synth
     3) load different presets
  */
 
+struct Synth
+{
+    // number of oscillators
+    int oscillators = 3;
+    // amount of presets
+    int presets = 150;
+    // number of filters
+    int filters = 3;
+    // number of outputs
+    int outputs = 2;
+    // type of built-in effect
+    std::string effectType = "delay";
+
+    // output midi
+    void outputMidi(int outputs);
+    // filter out all frequences above 10khz
+    void highCut10khz(bool filterSweepDown = true, bool adjustQFactor = true);
+    // load different presets
+    void loadPresets(bool loadAllPresets = false, std::string presetBankName = "Pads");
+};
+
 /*
 Thing 5) Seat
 5 properties:
@@ -205,6 +316,27 @@ Thing 5) Seat
     2) repel rain with its waterproof material
     3) provide comfort for the rider
  */
+
+struct Seat
+{
+    // outer material
+    std::string outerMaterial = "leather";
+    // inner material
+    std::string innerMaterial = "polyster";
+    // how many riders it can seat
+    int riders = 1;
+    // comfort rating
+    double comfortRating = 6.5;
+    // 5) safety rating 
+    double safetyRating = 9.5;
+
+    // seat riders
+    void seatRiders(int riders);
+    // repel rain with its waterproof material
+    void waterproof(bool applyWaterProofCoatToLeatherExterior = true);
+    // provide comfort for the rider
+    void comfort(int riders, double combinedWeightKG);
+};
 
 /*
 Thing 6) Engine
@@ -220,6 +352,27 @@ Thing 6) Engine
     3) burn fuel
  */
 
+struct Engine
+{
+    // pistons
+    int pistons = 2;
+    // valves
+    int valves = 16;
+    // cyclinder head  manufacturer
+    std::string cyclinderHeadManufacturer = "Suzuki";
+    // quanity of oil pans
+    int oilPans = 2;
+    // engine block type
+    std::string engineBlockType = "Combustion";
+
+    // produce energy for the motorcycle to move
+    void combust(int pistons, int valves, std::string engineBlockType);
+    // lubricate itself with oil to keep the parts moving fluidly
+    void lubricate(int oilPans, bool lubricateEngine);
+    // burn fuel
+    void burnFuel(bool burnFuel = true, bool regulateFuelIntake = true);
+};
+
 /*
 Thing 7) Exhaust
 5 properties:
@@ -233,6 +386,27 @@ Thing 7) Exhaust
     2) reduce fumes using catalytic converters
     3) reduce or increase the level of noise when reving the engine
  */
+
+struct Exhaust
+{
+    // length in inches
+    double lengthinInches = 15.4;
+    // turbocharger power
+    double turboChargerPower = 4.5;
+    // catalytic converters
+    int catalyticConverters = 1;
+    // muffler type
+    std::string mufflerType = "High Supression";
+    // number of pipes
+    int pipes = 2;
+
+    // increase the power of the engine using a turbocharger
+    void turboChargeOutput(double turboChargerPower);
+    // reduce fumes using catalytic converters
+    void catalyticConversion(bool performCatalyticConversion = true);
+    // reduce or increase the level of noise when reving the engine
+    void levelOfNoise(std::string mufflerType);
+};
 
 /*
 Thing 8) Fuel Tank
@@ -248,6 +422,28 @@ Thing 8) Fuel Tank
     3) hold fuel
  */
 
+struct FuelTank
+{
+    // capacity in litres
+    double capacityL = 8.5;
+    // the type of fuel it can hold
+    std::string fuel = "unleaded";
+    // the min amount of fuel it can hold before it starts to effect performance
+    double recommendedMinFuel = 3.5;
+    // capacity sensors
+    int sensors = 4;
+    // material
+    std::string material = "steel";
+
+    // notify the rider when it is low on fuel
+    std::string lowFuel(double recommendedMinFuel = 3.5, bool fuelIsLowerThanRecommendedAmoutn = true); // return type as std::string is ok?
+    // notify the rider when the wrong type of fuel has been used
+    std::string wrongFuel(int sensors = 4, std::string fuel = "unleaded", bool wrongFuelInTank = true);
+    // hold fuel
+    void holdFuel(double capacityL = 8.5, double recommendedMinFuel = 3.5);
+
+};
+
 /*
 Thing 9) Tyre
 5 properties:
@@ -262,19 +458,61 @@ Thing 9) Tyre
     3) wear out over time
  */
 
-/*
+struct Tyre
+{
+    // type of material // string
+    std::string material;
+    // hickness of the material // double
+    double thickness;
+    // average lifespan in km travelled  // double
+    double lifespanKM = 2500;
+    // the manufacturer // string
+    double pressure = 14;
+    // the type of terrain the tyre is most suited for // string
+    std::string terrain;    
+
+    // puncture
+    void puncture(bool tyrePressureDroppedBelow5 = true);
+    // provide support for the bike
+    void supportVehicle(std::string vehicleType = "Motor Bike", bool numOfTyres = 2);
+    // wear out over time
+    void wear(double lifespanKM);
+};
+
+ /*
 Thing 10) Motorbike
 5 properties:
-    1) seat 
-    2) engine 
-    3) exhaust 
-    4) fuel tank 
-    5) tyre
+    1) seat // string
+    2) engine // string
+    3) exhaust // string
+    4) fuel tank // string
+    5) tyre // string
 3 things it can do:
     1) Move forwards when the throttle is pressed
     2) Stand stationary using its stand
     3) Hold fuel in the fuel tank
  */
+ 
+struct Motorbike
+{
+    // seat
+    Seat seat;
+    // engine 
+    Engine engine;
+    // exhaust 
+    Exhaust exhaust;
+    // fuel tank 
+    FuelTank fuelTank;
+    // tyre 
+    Tyre tyre;
+
+    // Move forwards when the throttle is pressed
+    void move(std::string direction, int speed);
+    // Stand stationary using its stand
+    void stand(bool useStand = true, bool tyresMove = false);
+    // Hold fuel in the fuel tank
+    void holdFuel(FuelTank fuelTank, bool activateFuelSensors = true);
+};
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
