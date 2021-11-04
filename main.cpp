@@ -213,11 +213,11 @@ struct Sandwich
     int calories = 600;
 
     // cause foodpoisoning
-    void foodPoisoning(std::string fillings = "uncooked chicken");
+    void causeFoodPoisoning(std::string fillings = "uncooked chicken");
     // provide a satisfying meal
-    void satisfyingMeal(int calories);
+    void provideSatisfyingMeal(int calories);
     // go moldy if left uneaten
-    void moldy(int daysWithoutStorage);
+    void goMoldy(int daysWithoutStorage);
 };
 
 /*
@@ -261,7 +261,7 @@ struct SoccerTeam
     int leaguePosition = 4;
 
     // train their skills
-    void trainingSession(Manager managerA);
+    void trainPlayerSkills(Manager managerA);
     // win a game
     void winMatch(bool motivated);
     // move up the league table
@@ -298,7 +298,7 @@ struct Synth
     // output midi
     void outputMidi(int outputs);
     // filter out all frequences above 10khz
-    void highCut10khz(bool filterSweepDown = true, bool adjustQFactor = true);
+    void filterAllFrequenciesAbove10k(bool filterSweepDown = true, bool adjustQFactor = true);
     // load different presets
     void loadPresets(bool loadAllPresets = false, std::string presetBankName = "Pads");
 };
@@ -333,9 +333,9 @@ struct Seat
     // seat riders
     void seatRiders(int riders);
     // repel rain with its waterproof material
-    void waterproof(bool applyWaterProofCoatToLeatherExterior = true);
+    void repelWater(bool applyWaterProofCoatToExteriorMaterial = true);
     // provide comfort for the rider
-    void comfort(int riders, double combinedWeightKG);
+    void provideComfort(int riders, double combinedWeightKG);
 };
 
 /*
@@ -403,9 +403,9 @@ struct Exhaust
     // increase the power of the engine using a turbocharger
     void turboChargeOutput(double turboChargerPower);
     // reduce fumes using catalytic converters
-    void catalyticConversion(bool performCatalyticConversion = true);
+    void reduceFumes(bool performCatalyticConversion = true);
     // reduce or increase the level of noise when reving the engine
-    void levelOfNoise(std::string mufflerType);
+    void changeLevelOfNoise(std::string mufflerType);
 };
 
 /*
@@ -436,9 +436,9 @@ struct FuelTank
     std::string material = "steel";
 
     // notify the rider when it is low on fuel
-    std::string lowFuel(double recommendedMinFuel = 3.5, bool fuelIsLowerThanRecommendedAmoutn = true); // return type as std::string is ok?
+    std::string notifyFuelIsLow(double recommendedMinFuel = 3.5, bool fuelIsLowerThanRecommendedAmoutn = true); // return type as std::string is ok?
     // notify the rider when the wrong type of fuel has been used
-    std::string wrongFuel(int sensors = 4, std::string fuel = "unleaded", bool wrongFuelInTank = true);
+    std::string notifyIncorrectFuelType(int sensors = 4, std::string fuel = "unleaded", bool wrongFuelInTank = true);
     // hold fuel
     void holdFuel(double capacityL = 8.5, double recommendedMinFuel = 3.5);
 };
@@ -510,7 +510,7 @@ struct Motorbike
     // Stand stationary using its stand
     void stand(bool useStand = true, bool tyresMove = false);
     // Hold fuel in the fuel tank
-    void holdFuel(FuelTank fuelTank, bool activateFuelSensors = true);
+    void holdFuel(bool activateFuelSensors = true);
 };
 
 /*
