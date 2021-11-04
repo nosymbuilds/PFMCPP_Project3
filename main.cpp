@@ -57,59 +57,59 @@ Thing: Car Wash
  */
 
 /*
-Thing 1)
+Thing 1) Song
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) duration of the song // double
+    2) tempo of the song // int 
+    3) key of the song // char
+    4) number of artists performing on the song // int
+    5) record label that released the song // string
 3 things it can do:
-    1)
-    2)
-    3)
+    1) played on the radio
+    2) performed live at a concert
+    3) be remixed by another artist
  */
 
 /*
-Thing 2)
+Thing 2) Sandwich
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) type of bread // string
+    2) type of fillings // string
+    3) amount of different fillings // int
+    4) condiment used // string
+    5) number of calories // int
 3 things it can do:
-    1)
-    2)
-    3)
+    1) cause foodpoisoning
+    2) provide a satisfying meal
+    3) go moldy if left uneaten
  */
 
 /*
-Thing 3)
+Thing 3) Soccer Team
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of players in squad // int
+    2) average age of players in squad // int
+    3) number of total goals scored by the team // int
+    4) number of matches in the season // int
+    5) league position // int
 3 things it can do:
-    1)
-    2)
-    3)
+    1) train their skills
+    2) win a game
+    3) move up the league table
  */
 
 /*
-Thing 4)
+Thing 4) Synth
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of oscillators // int
+    2) amount of presets // int
+    3) number of filters // int
+    4) number of outputs // int
+    5) type of built-in effect // string
 3 things it can do:
-    1)
-    2)
-    3)
+    1) output midi
+    2) filter out all frequences above 10khz
+    3) load different presets
  */
 
 
