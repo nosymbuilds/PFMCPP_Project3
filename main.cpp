@@ -123,11 +123,11 @@ Thing 4) Synth
 /*
 Thing 10) Motorbike
 5 properties:
-    1) number of seats // int
-    2) power of engine // double
-    3) number of exhausts // int
-    4) fuel tank capacity // double
-    5) manufacturer // string
+    1) seat // string
+    2) engine // string
+    3) exhaust // string
+    4) fuel tank // string
+    5) tyre // string
 3 things it can do:
     1) Move forwards when the throttle is pressed
     2) Stand stationary using its stand
