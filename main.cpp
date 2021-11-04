@@ -441,7 +441,6 @@ struct FuelTank
     std::string wrongFuel(int sensors = 4, std::string fuel = "unleaded", bool wrongFuelInTank = true);
     // hold fuel
     void holdFuel(double capacityL = 8.5, double recommendedMinFuel = 3.5);
-
 };
 
 /*
@@ -482,11 +481,11 @@ struct Tyre
  /*
 Thing 10) Motorbike
 5 properties:
-    1) seat // string
-    2) engine // string
-    3) exhaust // string
-    4) fuel tank // string
-    5) tyre // string
+    1) seat 
+    2) engine 
+    3) exhaust 
+    4) fuel tank 
+    5) tyre
 3 things it can do:
     1) Move forwards when the throttle is pressed
     2) Stand stationary using its stand
