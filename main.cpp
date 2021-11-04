@@ -65,22 +65,6 @@ Part1 will be broken up into 5 separate steps
 */
 
 /*
-Thing 10)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-
-
-/*
 Thing 1) Song
 5 properties:
     1) duration of the song // double
@@ -136,8 +120,19 @@ Thing 4) Synth
     3) load different presets
  */
 
-
-
+/*
+Thing 10) Motorbike
+5 properties:
+    1) number of seats // int
+    2) power of engine // double
+    3) number of exhausts // int
+    4) fuel tank capacity // double
+    5) manufacturer // string
+3 things it can do:
+    1) Move forwards when the throttle is pressed
+    2) Stand stationary using its stand
+    3) Hold fuel in the fuel tank
+ */
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
