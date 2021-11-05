@@ -1,9 +1,9 @@
 /*
-Project 3 - Part 1a / 5
+Project 3 - Part 1e / 5
 Video:  Chapter 2 Part 5
 User-Defined Types
 
-Create a branch named Part1
+Continue your work on branch Part1
 
 Purpose: The entire purpose of this 5-part project is to get you writing C++ code that compiles and to 
 reinforce the syntax habits that C++ requires.  
@@ -13,7 +13,7 @@ What you create in this project will be used as the basis of Project 5 in the co
 Part1 purpose:  Learn to write UDTs
 
 You are going to write 10 UDTs in project3.  
-Part1 will be broken up into 5 separate steps, all on the same branch
+Part1 will be broken up into 5 separate steps
     Part 1a: you will learn to think about an object in terms of its sub-objects.
     Part 1b: you will write 4 un-related UDTs in plain english
     Part 1c: you will write 1 UDT in plain english that will be made of 5 related sub-objects
@@ -21,67 +21,500 @@ Part1 will be broken up into 5 separate steps, all on the same branch
     Part 1e: you will convert those 10 plain-english UDTs into code that runs.
 ************************
 
-1) Look at the picture of the car interior (Part1a pic.jpg).  
-    Fill in the blanks below which break this car interior down into sub-objects.
+Convert your 10 Plain-english UDTs into code.
 
-    Several sub-objects are listed below that make up this car's interior.
-        you're going to name several things that you'll find on each subobject
-        you're going to name several things that each subobject can do.
-        If you've seen "Family Feud", we are going to do what they do in that show
+I recommend compiling after finishing each one and making sure it compiles 
+without errors or warnings before moving on to writing the next UDT. 
 
-        A few blanks are filled in for you already.
+1) define an empty struct below your plain-english UDT. i.e.:
 
-Main Object: Car Interior
-Sub Object 1: Steering Wheel
-    Name 4 things you'll find on the:    Steering Wheel
-        1) paddle shifters
-        2) 'cruise control' controls
-        3) 
-        4) 
-    Name 2 things you can do with the:   Steering Wheel
-        1) adjust cruise control settings.
-        2)
-        
-Sub Object 2: Instrument Cluster
-    Name 4 things you'll find on the:   Instrument Cluster
-        1)
-        2)
-        3)
-        4)
-    Name 3 things you can do with the:   Instrument Cluster
-        1)
-        2)
-        3)
+Thing: Car Wash   
+    5 properties:
+        - number of vacuum cleaners
+        - number of eco-friendly cleaning supplies
+        - stores the amount of water used per week.
+        - stores amount of profit made per week
+        - number of cars serviced per day
+    3 things it can do:
+        - wash and wax car
+        - charge customer
+        - detail the car interior
+ */
+
+#if false //ignore these #if #endif lines. they're just here to prevent compiler errors.
+struct CarWash
+{
+
+};
+#endif
+/*
+    - Do this for all 10 UDTs
+
+2) Below your plain-english UDT, Copy your 5 properties & 3 actions into the empty struct body.
+    - comment them out.
+    - Do this for all 10 UDTs
     
-Sub Object 3: Environment Controls
-    Name 3 things you'll find on the:    Environment Controls
-        1)
-        2)
-        3)
-    Name 3 things you can do with the:   Environment Controls
-        1)
-        2)
-        3)
+3) declare your member variables and member functions underneath each plain-english comment in your struct's body.
+    - give the member variables relevant data types
+    - Do this for all 10 UDTs
+ 
+4) make the function parameter list for those member functions use some of your User-Defined Types
+    - You'll write definitions/implementations for these functions in Project3 Part2
+    - you'll call each of these functions in Project3 part3
+    - Do this for all 10 UDTs
+ 
+5) make 2 of the 10 user-defined types have a nested class.  
+    - this nested class also needs 5 properties and 3 actions.
+    - these nested classes are not considered one of your 10 UDTs.
+    - this nested class must be related to the class it is nested inside
+ 
+6) your 10th UDT's properties should be instances of your #5-#9 UDTs.   
+    - No primitives allowed!
+ 
+7) After you finish defining each type, click the [run] button.  
+    Clear up any errors or warnings as best you can. 
+    if your code produces a -Wpadded warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
+ */
 
-Sub Object 4: Infotainment System
-    Name 3 things you'll find on the:    Infotainment System
-        1)
-        2)
-        3)
-    Name 3 things you can do with the:   Infotainment System
-        1)
-        2)
-        3)
+/*
+ example:  
 
-Sub Object 5: Seat 
-    Name 3 things you'll find on the:    Seat
-        1)
-        2)
-        3)
-    Name 2 things you can do with the:   Seat
-        1)
-        2)
-*/
+Thing: Car Wash   
+    5 properties:
+        - number of vacuum cleaners
+        - number of eco-friendly cleaning supplies
+        - stores the amount of water used per week.
+        - stores amount of profit made per week
+        - number of cars serviced per day
+    3 things it can do:
+        - wash and wax car
+        - charge customer
+        - detail the car interior
+ */
+
+#include <iostream>
+#include <string>
+
+struct CarWash //                                   1) define an empty struct for each of your 10 types.       
+{
+    //number of vacuum cleaners                     2) copied and commented-out plain-english property
+    int numVacuumCleaners = 3; //                   3) member variables with relevant data types.
+    //number of eco-friendly cleaning supplies      
+    int numEcoFriendlyCleaningSupplies = 20;     
+    //stores the amount of water used per week.     
+    float waterUsedPerWeek = 200.f;            
+    //stores amount of profit made per week         
+    float profitPerWeek = 495.95f;               
+    //number of cars serviced per day               
+    int numberOfCarsServiced = 10;               
+    
+    struct Car //5)                                 Note that the nested type 'Car' is related to the 'CarWash' 
+    {
+        //2) member variables with relevant data types.  the names are appropriate for the U.D.T.'s purpose.
+        bool isAPickupTruck = false;
+        float gasMileage = 26.2f;        
+        int year = 1985;
+        std::string manufacturer = "Toyota";
+        std::string model = "Corolla";
+
+        //3) a member function whose parameter has a default value.
+        //the parameter name is related to the work the function will perform.
+        void fillTank(double fuelAmountInGallons = 2.0);  
+        void breakDown(std::string failureType, bool requiresTow = false);
+        int getMilesTraveledAnnually(bool includeUberLyftTrips);
+    };
+
+    //wash and wax car
+    void washAndWaxCar(Car carA); //4) a member function whose parameter is a UDT.
+    //charge customer
+    float chargeCustomer(float discountPercentage);
+    //detail the car interior
+    void detailInterior(Car carB);
+    
+    //5) a member variable whose type is a UDT.
+    Car carBeingServiced;  
+};
+
+/*
+Thing 1) Song
+5 properties:
+    1) duration of the song // double
+    2) tempo of the song // int 
+    3) key of the song // char
+    4) number of artists performing on the song // int
+    5) record label that released the song // string
+3 things it can do:
+    1) played on the radio
+    2) performed live at a concert
+    3) be remixed by another artist
+ */
+
+struct Song
+{
+    struct Artist
+    {
+        std::string name = "Moby";
+        int age = 50;
+        std::string nationality = "American";
+        int yearsActive = 25;
+        std::string mostPopularSong = "Porcelain";
+
+        void performSongLive(bool tour = true);
+        void recordSongInTheStudio(bool recordAlbum);
+        void promoteSong(int numberOfInterviews, bool tvAppearances);
+    };
+
+    Artist artistA;
+
+    // duration of the song
+    int duration = 5;
+    // tempo of the song
+    float tempo = 125.f;
+    // key of the song
+    char key = 'a';
+    // number of artists performing on the song
+    int performingArtists = 4;
+    // record label that released the song
+    std::string recordLabel = "Virgin";
+    
+    // play song on the radio
+    void playSongOnRadio(int duration, float tempo);
+    // perform song live at a concert
+    void performSongLiveAtConcert(Artist artistB, std::string concert);
+    // remix the song
+    void remixSong(std::string title, Artist artistC, std::string recordLabel);
+};
+
+/*
+Thing 2) Sandwich
+5 properties:
+    1) type of bread // string
+    2) type of fillings // string
+    3) number of fillings // int
+    4) condiment // string
+    5) number of calories // int
+3 things it can do:
+    1) cause foodpoisoning
+    2) provide a satisfying meal
+    3) go moldy if left uneaten
+ */
+
+struct Sandwich
+{
+    // type of bread
+    std::string bread = "Brown";
+    // number of fillings
+    int numOfFillings = 1;
+    // fillings
+    std::string filling = "Salami";
+    // condiment
+    std::string condiment = "Mayo";
+    // number of calories
+    int calories = 600;
+
+    // cause foodpoisoning
+    void causeFoodPoisoning(bool uncookedMeat = true);
+    // provide a satisfying meal
+    void provideSatisfyingMeal(double levelOfSatisfaction, int calories);
+    // go moldy if left uneaten
+    void goMoldy(int daysWithoutStorage);
+};
+
+/*
+Thing 3) Soccer Team
+5 properties:
+    1) number of players in squad // int
+    2) average age of players in squad // int
+    3) number of total goals scored by the team // int
+    4) number of matches in the season // int
+    5) league position // int
+3 things it can do:
+    1) train skills
+    2) acquire injuries
+    3) receive awards
+ */
+
+struct SoccerTeam
+{
+    struct Player
+    {
+        std::string name = "Phil Foden";
+        int age = 21;
+        std::string nationality = "English";
+        std::string position = "Midfield";
+        int gamesPlayed = 89;
+
+        void assistGoal(bool passToStriker = true);
+        void scoreGoal(bool shootAtGoal = true);
+        void celebrateGoal(char celebrationType, bool scorerOfGoal);
+    };
+
+    Player player1;
+
+    // number of players in squad
+    int squadPlayers = 24;
+    // average age of players in squad
+    int averageAge = 28;
+    // number of total goals scored by the team
+    int totalGoalsScoredThisSeason = 60;
+    // number of matches in the season
+    int matchesPlayedThisSeason = 12;
+    // league position
+    int currentLeaguePositionThisSeason = 4;
+
+    // train skills
+    void trainSkills(Player player2, std::string skill);
+    // acquire injuries
+    void acquireInjury(Player player3, int daysToRecover);
+    // receive awards
+    void receiveAward(std::string award);
+};
+
+/*
+Thing 4) Synth
+5 properties:
+    1) number of oscillators // int
+    2) amount of presets // int
+    3) number of filters // int
+    4) number of outputs // int
+    5) type of built-in effect // string
+3 things it can do:
+    1) output midi
+    2) filter out all frequences above 10khz
+    3) load different presets
+ */
+
+struct Synth
+{
+    // number of oscillators
+    int oscillators = 3;
+    // amount of presets
+    int presets = 150;
+    // number of filters
+    int filters = 3;
+    // number of outputs
+    int outputs = 2;
+    // type of built-in effect
+    std::string effectType = "Delay";
+
+    // output midi
+    void outputMidi(int output);
+    // filter out all frequences above 10khz
+    void filterAllFrequenciesAbove10k(bool moveHighCutFilterTo10k = true, bool adjustQFactor = true);
+    // load different presets
+    void loadPresets(std::string presetBankName = "Pads");
+};
+
+/*
+Thing 5) Seat
+5 properties:
+    1) outer material // string
+    2) padding material // string
+    3) how many riders it can seat // int
+    4) comfort rating // double
+    5) safety rating // double
+3 things it can do:
+    1) seat 2 riders at the same time
+    2) adjust seat position
+    3) automatically heat in low temperatures
+ */
+
+struct Seat
+{
+    // outer material
+    std::string outerMaterial = "Leather";
+    // inner material
+    std::string paddingMaterial = "Polyethylene Foam";
+    // how many riders it can seat
+    int riders = 1;
+    // comfort rating
+    double comfortRating = 6.5;
+    // 5) safety rating 
+    double safetyRating = 9.5;
+
+    // seat riders
+    void seatRiders(int riders);
+    // adjust seat position
+    void adjustSeatPosition(float moveVertically, float moveHorizontally);
+    // automatically heat in low temperatures
+    void heatSeat(float airTemp, float currentSeatTemp, float targetSeatTemp);
+};
+
+/*
+Thing 6) Engine
+5 properties:
+    1) pistons // int
+    2) valves // int
+    3) cyclinder head manufacturer // string
+    4) quanity of oil pans // int
+    5) engine block type // string
+3 things it can do:
+    1) produce energy for the motorcycle to move
+    2) lubricate itself with oil to keep the parts moving fluidly
+    3) burn fuel
+ */
+
+struct Engine
+{
+    // pistons
+    int pistons = 2;
+    // valves
+    int valves = 16;
+    // cyclinder head manufacturer
+    std::string cyclinderHeadManufacturer = "Suzuki";
+    // quantity of oil pans
+    int oilPans = 2;
+    // engine block type
+    std::string engineBlockType = "Combustion";
+
+    // produce energy for the motorcycle to move
+    void produceEnergy(int pistons, int valves, std::string engineBlockType);
+    // lubricate itself with oil to keep the parts moving fluidly
+    void lubricateEngine(int oilPans = 2, double availableOilInLitres = 0.9);
+    // burn fuel
+    void burnFuel(double availableFuelInLitres, float engineRevs, float amountOfFuelRequired);
+};
+
+/*
+Thing 7) Exhaust
+5 properties:
+    1) length in inches // double
+    2) turbocharger power // double
+    3) catalytic converters // int
+    4) muffler type // string
+    5) number of pipes // int
+3 things it can do:
+    1) increase the power of the engine using a turbocharger
+    2) reduce fumes using catalytic converters
+    3) reduce or increase the level of noise when reving the engine
+ */
+
+struct Exhaust
+{
+    // length in inches
+    double lengthInInches = 15.4;
+    // turbo charger power
+    double turboChargerPower = 4.5;
+    // catalytic converters
+    int catalyticConverters = 1;
+    // muffler type
+    std::string mufflerType = "High Supression";
+    // number of pipes
+    int pipes = 2;
+
+    // increase the power of the engine using a turbocharger
+    void turboChargeEngine(double turboChargerPower);
+    // reduce fumes using catalytic converters
+    void reduceFumes(int catalyticConverters = 1, bool performCatalyticConversion = true);
+    // reduce or increase the level of noise when reving the engine
+    void controlExhaustNoise(std::string mufflerType, float engineRevs, float noiseInDecibels);
+};
+
+/*
+Thing 8) Fuel Tank
+5 properties:
+    1) capacity in litres // double
+    2) the type of fuel it can hold // string
+    3) the min amount of fuel it can hold before it starts to effect performance // double
+    4) capacity sensors // int
+    5) material // string
+3 things it can do:
+    1) notify the rider when it is low on fuel
+    2) notify the rider when the wrong type of fuel has been used
+    3) hold fuel
+ */
+
+struct FuelTank
+{
+    // capacity in litres
+    double capacityInLitres = 8.5;
+    // the type of fuel it can hold
+    std::string fuelType = "Unleaded";
+    // the min amount of fuel it can hold before it starts to effect performance
+    double minimumFuelAmountInLitres = 1.0;
+    // capacity sensors
+    int sensors = 4;
+    // material
+    std::string material = "Steel";
+
+    // notify the rider when it is low on fuel
+    std::string notifyFuelAmountIsLow(double minimumfuelAmountInLitres = 0.5, bool fuelIsLowerThanMinimumAmount = true);
+    // notify the rider when the wrong type of fuel has been used
+    std::string notifyIncorrectFuelTypeUsed(std::string fuelType = "diesel", bool wrongFuelInTank = true);
+    // hold fuel
+    float trackFuelUsage(int sensors, double capacityInLitres, double previousFuelReading, double currentFuelReading);
+};
+
+/*
+Thing 9) Tyre
+5 properties:
+    1) type of material // string
+    2) thickness of the material // double
+    3) average lifespan in km travelled  // double
+    4) the manufacturer // string
+    5) the type of terrain the tyre is most suited for // string
+3 things it can do:
+    1) puncture
+    2) provide support for the bike
+    3) wear out over time
+ */
+
+struct Tyre
+{
+    // type of material // string
+    std::string material = "Synthetic Rubber";
+    // thickness of the material // double
+    double thicknessInInches = 22.5;
+    // average lifespan in km travelled  // double
+    int lifespanInKm = 2500;
+    // the manufacturer // string
+    double pressure = 14.2;
+    // the type of terrain the tyre is most suited for // string
+    std::string terrain = "Road";    
+
+    // puncture
+    void puncture(bool holeInTyre  = true);
+    // provide support for the bike
+    void supportBike(int tyres = 2);
+    // wear out over time
+    void wearOut(int lifespanInKm, int distanceTravelledInKm, std::string material, std::string terrain);
+};
+
+ /*
+Thing 10) Motorbike
+5 properties:
+    1) seat 
+    2) engine 
+    3) exhaust 
+    4) fuel tank 
+    5) tyre
+3 things it can do:
+    1) Move
+    2) Breakdown
+    3) Crash
+ */
+ 
+struct Motorbike
+{
+    // seat
+    Seat seat;
+    // engine 
+    Engine engine;
+    // exhaust 
+    Exhaust exhaust;
+    // fuel tank 
+    FuelTank fuelTank;
+    // tyre 
+    Tyre tyre;
+
+    // Move
+    void move(std::string direction, int speed);
+    // Breakdown
+    void breakdown(std::string areaOfIssue = "Engine");
+    // Crash
+    void crash(std::string causeOfCrash, bool isVehicleWrittenOff, int injuriesSustained);
+};
+
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
