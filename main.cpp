@@ -151,7 +151,7 @@ Thing 1) Song
 
 struct Song
 {
-    class Artist
+    struct Artist
     {
         std::string name = "Moby";
         int Age = 50;
@@ -236,7 +236,7 @@ Thing 3) Soccer Team
 
 struct SoccerTeam
 {
-    class Manager
+    struct Manager
     {
         std::string name = "Pep Gaurdiola";
         int Age = 48;
@@ -249,6 +249,8 @@ struct SoccerTeam
         void speakToThePress(bool attendPressConference = true);
     };
 
+    Manager teamManager;
+
     // number of players in squad
     int squadPlayers = 24;
     // average age of players in squad
@@ -260,8 +262,8 @@ struct SoccerTeam
     // league position
     int leaguePosition = 4;
 
-    // train their skills
-    void trainPlayerSkills(Manager managerA);
+    // hire new manager
+    void hireNewManager(Manager newManager);
     // win a game
     void winMatch(bool motivated);
     // move up the league table
