@@ -154,8 +154,8 @@ struct Song
     struct Artist
     {
         std::string name = "Moby";
-        int Age = 50;
-        std::string birthPlace = "America";
+        int age = 50;
+        std::string nationality = "American";
         int yearsActive = 25;
         std::string mostPopularSong = "Porcelain";
 
@@ -173,7 +173,7 @@ struct Song
     // key of the song
     char key = 'a';
     // number of artists performing on the song
-    int numOfPerformingArtists = 4;
+    int performingArtists = 4;
     // record label that released the song
     std::string recordLabel = "Virgin";
     
@@ -190,8 +190,8 @@ Thing 2) Sandwich
 5 properties:
     1) type of bread // string
     2) type of fillings // string
-    3) amount of different fillings // int
-    4) condiment used // string
+    3) number of fillings // int
+    4) condiment // string
     5) number of calories // int
 3 things it can do:
     1) cause foodpoisoning
@@ -203,11 +203,11 @@ struct Sandwich
 {
     // type of bread
     std::string bread = "Brown";
-    // type of fillings
-    std::string filling = "Salami";
-    // amount of different fillings
+    // number of fillings
     int numOfFillings = 1;
-    // condiment used
+    // fillings
+    std::string filling = "Salami";
+    // condiment
     std::string condiment = "Mayo";
     // number of calories
     int calories = 600;
@@ -240,7 +240,7 @@ struct SoccerTeam
     {
         std::string name = "Phil Foden";
         int age = 21;
-        std::string nationality = "England";
+        std::string nationality = "English";
         std::string position = "Midfield";
         int gamesPlayed = 89;
 
@@ -258,7 +258,7 @@ struct SoccerTeam
     // number of total goals scored by the team
     int totalGoalsScoredThisSeason = 60;
     // number of matches in the season
-    int matchesToPlayThisSeason = 38;
+    int matchesPlayedThisSeason = 12;
     // league position
     int currentLeaguePositionThisSeason = 4;
 
@@ -315,8 +315,8 @@ Thing 5) Seat
     5) safety rating // double
 3 things it can do:
     1) seat 2 riders at the same time
-    2) change its position
-    3) automatically heat itself in low temperatures
+    2) adjust seat position
+    3) automatically heat in low temperatures
  */
 
 struct Seat
@@ -334,9 +334,9 @@ struct Seat
 
     // seat riders
     void seatRiders(int riders);
-    // change its position
-    void changePosition(float moveVertically, float moveHorizontally);
-    // automatically heat itself in low temperatures
+    // adjust seat position
+    void adjustSeatPosition(float moveVertically, float moveHorizontally);
+    // automatically heat in low temperatures
     void heatSeat(float airTemp, float currentSeatTemp, float targetSeatTemp);
 };
 
@@ -393,7 +393,7 @@ struct Exhaust
 {
     // length in inches
     double lengthInInches = 15.4;
-    // turbocharger power
+    // turbo charger power
     double turboChargerPower = 4.5;
     // catalytic converters
     int catalyticConverters = 1;
@@ -440,7 +440,7 @@ struct FuelTank
     // notify the rider when it is low on fuel
     std::string notifyFuelAmountIsLow(double minimumfuelAmountInLitres = 0.5, bool fuelIsLowerThanMinimumAmount = true);
     // notify the rider when the wrong type of fuel has been used
-    std::string notifyIncorrectFuelTypeUsed(std::string fuelType = "unleaded", bool wrongFuelInTank = true);
+    std::string notifyIncorrectFuelTypeUsed(std::string fuelType = "diesel", bool wrongFuelInTank = true);
     // hold fuel
     float trackFuelUsage(int sensors, double capacityInLitres, double previousFuelReading, double currentFuelReading);
 };
@@ -473,9 +473,9 @@ struct Tyre
     std::string terrain = "Road";    
 
     // puncture
-    void puncture(int tyrePressure, bool holeInTyre);
+    void puncture(bool holeInTyre  = true);
     // provide support for the bike
-    void supportVehicle(std::string vehicleType = "Motorbike", bool tyres = 2);
+    void supportBike(int tyres = 2);
     // wear out over time
     void wearOut(int lifespanInKm, int distanceTravelledInKm, std::string material, std::string terrain);
 };
@@ -510,7 +510,7 @@ struct Motorbike
     // Move
     void move(std::string direction, int speed);
     // Breakdown
-    void breakdown(std::string areaOfIssue);
+    void breakdown(std::string areaOfIssue = "Engine");
     // Crash
     void crash(std::string causeOfCrash, bool isVehicleWrittenOff, int injuriesSustained);
 };
