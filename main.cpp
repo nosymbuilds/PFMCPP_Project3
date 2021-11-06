@@ -121,12 +121,12 @@ struct Person
     struct Foot
     {
         void stepForward()
-    	{
+        {
             std::cout << "One step taken forward" << std::endl;
-    	}
+        }
 
         int stepSize()
-    	{
+        {
             return 1;
         }
     };
