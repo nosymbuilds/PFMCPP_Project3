@@ -108,9 +108,48 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Person
+{
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTravelled;
 
+    void run(int howFast, bool startWithLeftFoot);
 
+    struct Foot
+    {
+        void stepForward()
+        {
+            std::cout << "One step taken forward" << std::endl;
+        }
 
+        int stepSize()
+        {
+            return 1;
+        }
+    };
+
+    Foot leftFoot;
+    Foot rightFoot;
+};
+
+void Person::run(int howFast, bool startWithLeftFoot)
+{
+    if (startWithLeftFoot == true)
+    {
+        leftFoot.stepForward();
+        rightFoot.stepForward();
+    } 
+    else
+    {
+        rightFoot.stepForward();
+        leftFoot.stepForward();
+    }
+    distanceTravelled += leftFoot.stepSize() + rightFoot.stepSize();
+    std::cout << "You ran at a speed of " << howFast << " and travelled a distance of " << distanceTravelled << std::endl;
+}
 
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
@@ -123,21 +162,6 @@ struct CarWash
  
  4) After you finish defining each type/function, click the [run] button.  Clear up any errors or warnings as best you can.
  if your code produces a -Wpadded warning, add '-Wno-padded' to the .replit file with the other compiler flags (-Weverything -Wno-missing-prototypes etc etc)
- */
-
-
-/*
-Thing 1) Song
-5 properties:
-    1) duration of the song // double
-    2) tempo of the song // int 
-    3) key of the song // char
-    4) number of artists performing on the song // int
-    5) record label that released the song // string
-3 things it can do:
-    1) played on the radio
-    2) performed live at a concert
-    3) be remixed by another artist
  */
 
 struct Song
@@ -157,73 +181,98 @@ struct Song
 
     Artist artistA;
 
-    // duration of the song
     int duration = 5;
-    // tempo of the song
     float tempo = 125.f;
-    // key of the song
     char key = 'a';
-    // number of artists performing on the song
     int performingArtists = 4;
-    // record label that released the song
     std::string recordLabel = "Virgin";
     
-    // play song on the radio
-    void playSongOnRadio(int duration, float tempo);
-    // perform song live at a concert
+    void playSongOnRadio(int songDuration, float songTempo);
     void performSongLiveAtConcert(Artist artistB, std::string concert);
-    // remix the song
-    void remixSong(std::string title, Artist artistC, std::string recordLabel);
+    void remixSong(std::string title, Artist artistC, std::string recordLabelSongIsSignedTo);
 };
 
-/*
-Thing 2) Sandwich
-5 properties:
-    1) type of bread // string
-    2) type of fillings // string
-    3) number of fillings // int
-    4) condiment // string
-    5) number of calories // int
-3 things it can do:
-    1) cause foodpoisoning
-    2) provide a satisfying meal
-    3) go moldy if left uneaten
- */
+void Song::playSongOnRadio(int songDuration, float songTempo)
+{
+    std::cout << "The song is playing on the radio for " << songDuration << " minutes, at the tempo of " << songTempo << " bpm" << std::endl;
+}
+
+void Song::performSongLiveAtConcert(Artist artistB, std::string concert)
+{
+    std::cout << "The song is performed live at " << concert << " by " << artistB.name << std::endl;
+}
+
+void Song::remixSong(std::string title, Artist artistC, std::string recordLabelSongIsSignedTo)
+{
+    std::cout << recordLabelSongIsSignedTo << " have chosen " << artistC.name << " to remix the song " << title << std::endl;
+}
+
+void Song::Artist::performSongLive(bool tour)
+{
+    if (tour == true)
+    {
+        std::cout << "The artist will perform the song live on tour." << std::endl;
+    }
+    else
+    {
+        std::cout << "The artist will NOT perform the song live on tour." << std::endl;
+    }
+}
+
+void Song::Artist::recordSongInTheStudio(bool recordAlbum)
+{
+    if (recordAlbum == true)
+    {
+        std::cout << "The artist is recording a song in the studio for their album." << std::endl; 
+    }
+    else
+    {
+        std::cout << "The artist is recording a song in the studio but it is not for their album." << std::endl;
+    }
+}
+
+void Song::Artist::promoteSong(int numberOfInterviews, bool tvAppearances)
+{
+    if (tvAppearances == true)
+    {
+        std::cout << "The artist is promoting their song by doing " << numberOfInterviews << " interviews that include some TV appearances." << std::endl; 
+    }
+    else
+    {
+        std::cout << "The artist is promoting their song by doing " << numberOfInterviews << " interviews but has declined all TV appearances." << std::endl; 
+    }  
+}
 
 struct Sandwich
 {
-    // type of bread
     std::string bread = "Brown";
-    // number of fillings
     int numOfFillings = 1;
-    // fillings
     std::string filling = "Salami";
-    // condiment
     std::string condiment = "Mayo";
-    // number of calories
     int calories = 600;
 
-    // cause foodpoisoning
     void causeFoodPoisoning(bool uncookedMeat = true);
-    // provide a satisfying meal
-    void provideSatisfyingMeal(double levelOfSatisfaction, int calories);
-    // go moldy if left uneaten
+    void provideSatisfyingMeal(double levelOfSatisfaction, int calorieCount);
     void goMoldy(int daysWithoutStorage);
 };
 
-/*
-Thing 3) Soccer Team
-5 properties:
-    1) number of players in squad // int
-    2) average age of players in squad // int
-    3) number of total goals scored by the team // int
-    4) number of matches in the season // int
-    5) league position // int
-3 things it can do:
-    1) train skills
-    2) acquire injuries
-    3) receive awards
- */
+void Sandwich::causeFoodPoisoning(bool uncookedMeat)
+{
+    if (uncookedMeat == true)
+    {
+        std::cout << "The sandwich had uncooked meat as a filling which caused food poisoning." << std::endl;
+    }
+}
+
+void Sandwich::provideSatisfyingMeal(double levelOfSatisfaction, int calorieCount)
+{
+    std::cout << "The sandwich has a satisfaction rating of " << levelOfSatisfaction << " with a total calorie content of " << calorieCount  << std::endl; 
+}
+
+void Sandwich::goMoldy(int daysWithoutStorage)
+{
+    std::cout << "After " << daysWithoutStorage << " days with no storage the sandwich has gone moldy." << std::endl;   
+}
 
 struct SoccerTeam
 {
@@ -237,274 +286,393 @@ struct SoccerTeam
 
         void assistGoal(bool passToStriker = true);
         void scoreGoal(bool shootAtGoal = true);
-        void celebrateGoal(char celebrationType, bool scorerOfGoal);
+        void celebrateGoal(std::string celebrationType, bool scorerOfGoal);
     };
 
     Player player1;
 
-    // number of players in squad
     int squadPlayers = 24;
-    // average age of players in squad
     int averageAge = 28;
-    // number of total goals scored by the team
     int totalGoalsScoredThisSeason = 60;
-    // number of matches in the season
     int matchesPlayedThisSeason = 12;
-    // league position
     int currentLeaguePositionThisSeason = 4;
 
-    // train skills
     void trainSkills(Player player2, std::string skill);
-    // acquire injuries
     void acquireInjury(Player player3, int daysToRecover);
-    // receive awards
     void receiveAward(std::string award);
 };
 
-/*
-Thing 4) Synth
-5 properties:
-    1) number of oscillators // int
-    2) amount of presets // int
-    3) number of filters // int
-    4) number of outputs // int
-    5) type of built-in effect // string
-3 things it can do:
-    1) output midi
-    2) filter out all frequences above 10khz
-    3) load different presets
- */
+void SoccerTeam::trainSkills(Player player2, std::string skill)
+{
+    std::cout << player2.name << " is training their " << skill << " skills." << std::endl;
+}
+
+void SoccerTeam::acquireInjury(Player player3, int daysToRecover)
+{
+    std::cout << player3.name << " has acquired an injury. It will take them " << daysToRecover << " days to recover." << std::endl;
+}
+
+void SoccerTeam::receiveAward(std::string award)
+{
+    std::cout << "The team has received the " << award << " award!" << std::endl;
+}
+
+void SoccerTeam::Player::assistGoal(bool passToStriker)
+{
+    if (passToStriker == true)
+    {
+        std::cout << "A pass was made to the striker and a goal was scored!" << std::endl;
+    }
+    else
+    {
+        std::cout << "The striker was ready to receive the ball but a pass was not made to them." << std::endl;
+    }
+    
+}
+
+void SoccerTeam::Player::scoreGoal(bool shootAtGoal)
+{
+    if (shootAtGoal == true)
+    {
+        std::cout << "GOALLLL!" << std::endl;
+    }
+    else
+    {
+        std::cout << "The player had an oppurtunity to score but they did not take a shot at goal." << std::endl;
+    }
+}
+
+void SoccerTeam::Player::celebrateGoal(std::string celebrationType, bool scorerOfGoal)
+{
+    if (scorerOfGoal == true)
+    {
+        std::cout << "The player celebrates scoring a goal with a " << celebrationType << std::endl;
+    }
+    else
+    {
+        std::cout << "The player has not scored the goal but is so happy they celebrate the goal with a " << celebrationType << std::endl;
+    }
+}
 
 struct Synth
 {
-    // number of oscillators
     int oscillators = 3;
-    // amount of presets
     int presets = 150;
-    // number of filters
     int filters = 3;
-    // number of outputs
     int outputs = 2;
-    // type of built-in effect
     std::string effectType = "Delay";
 
-    // output midi
-    void outputMidi(int output);
-    // filter out all frequences above 10khz
+    void outputMidi(int midiOutput);
     void filterAllFrequenciesAbove10k(bool moveHighCutFilterTo10k = true, bool adjustQFactor = true);
-    // load different presets
-    void loadPresets(std::string presetBankName = "Pads");
+    void loadPresets(std::string presetBankName = "All");
+
 };
 
-/*
-Thing 5) Seat
-5 properties:
-    1) outer material // string
-    2) padding material // string
-    3) how many riders it can seat // int
-    4) comfort rating // double
-    5) safety rating // double
-3 things it can do:
-    1) seat 2 riders at the same time
-    2) adjust seat position
-    3) automatically heat in low temperatures
- */
+void Synth::outputMidi(int midiOutput)
+{
+    std::cout << "Midi data is sent to midi output " << midiOutput << std::endl;
+}
+
+void Synth::filterAllFrequenciesAbove10k(bool moveHighCutFilterTo10k, bool adjustQFactor)
+{
+    if (moveHighCutFilterTo10k == true)
+    {   
+        if (adjustQFactor == true)
+        {   
+            std::cout << "All frequencies above 10k have been cut and the Q factor has been adjusted." << std::endl;
+        }
+        else
+        {
+            std::cout << "All frequencies above 10k have been cut." << std::endl;
+        }   
+    } 
+    else 
+    {
+        std::cout << "No filtering of frequencies performed." << std::endl;
+    }       
+}
+
+void Synth::loadPresets(std::string presetBankName)
+{
+    std::cout << presetBankName << " presets have been loaded." << std::endl;
+}
 
 struct Seat
 {
-    // outer material
     std::string outerMaterial = "Leather";
-    // inner material
     std::string paddingMaterial = "Polyethylene Foam";
-    // how many riders it can seat
     int riders = 1;
-    // comfort rating
     double comfortRating = 6.5;
-    // 5) safety rating 
     double safetyRating = 9.5;
 
-    // seat riders
     void seatRiders(int riders);
-    // adjust seat position
     void adjustSeatPosition(float moveVertically, float moveHorizontally);
-    // automatically heat in low temperatures
-    void heatSeat(float airTemp, float currentSeatTemp, float targetSeatTemp);
+    void heatSeat(float currentSeatTemp, float targetSeatTemp);
 };
 
-/*
-Thing 6) Engine
-5 properties:
-    1) pistons // int
-    2) valves // int
-    3) cyclinder head manufacturer // string
-    4) quanity of oil pans // int
-    5) engine block type // string
-3 things it can do:
-    1) produce energy for the motorcycle to move
-    2) lubricate itself with oil to keep the parts moving fluidly
-    3) burn fuel
- */
+void Seat::seatRiders(int numOfRiders)
+{
+    if (numOfRiders == 0)
+    {
+        std::cout << "The bike has no riders to seat." << std::endl;
+    }
+    else if (numOfRiders == 1)
+    {
+        std::cout << numOfRiders << " rider takes a seat on the bike." << std::endl;
+    }
+    else 
+    {
+        std::cout << numOfRiders << " riders takes their seat on the bike." << std::endl;
+    }
+}
+
+void Seat::adjustSeatPosition(float moveVertically, float moveHorizontally)
+{
+    if (moveVertically == 0.0f && moveHorizontally == 0.0f)
+    {
+        std::cout << "The seat is not adjusted." << std::endl;
+    }
+    else 
+    {
+        std::cout << "The seat is adjusted "  << moveVertically << " degrees vertically and " << moveHorizontally << " degress horizontally." << std::endl;
+    }
+}
+
+void Seat::heatSeat( float currentSeatTemp, float targetSeatTemp)
+{
+    float increaseTemp = targetSeatTemp - currentSeatTemp;
+    std::cout << "The seat temperature will be increased by " <<  increaseTemp << " to reach the desired temperature set by the rider." << std::endl;    
+}
 
 struct Engine
 {
-    // pistons
     int pistons = 2;
-    // valves
     int valves = 16;
-    // cyclinder head manufacturer
     std::string cyclinderHeadManufacturer = "Suzuki";
-    // quantity of oil pans
     int oilPans = 2;
-    // engine block type
-    std::string engineBlockType = "Combustion";
+    std::string engineBlockType = "combustion";
 
-    // produce energy for the motorcycle to move
-    void produceEnergy(int pistons, int valves, std::string engineBlockType);
-    // lubricate itself with oil to keep the parts moving fluidly
-    void lubricateEngine(int oilPans = 2, double availableOilInLitres = 0.9);
-    // burn fuel
-    void burnFuel(double availableFuelInLitres, float engineRevs, float amountOfFuelRequired);
+    void produceEnergy(int numOfPistons, int numOfValves, std::string engineType);
+    void lubricateEngine(double availableOilInLitres = 0.9);
+    void burnFuel(double availableFuelInLitres, double engineRevs);
 };
 
-/*
-Thing 7) Exhaust
-5 properties:
-    1) length in inches // double
-    2) turbocharger power // double
-    3) catalytic converters // int
-    4) muffler type // string
-    5) number of pipes // int
-3 things it can do:
-    1) increase the power of the engine using a turbocharger
-    2) reduce fumes using catalytic converters
-    3) reduce or increase the level of noise when reving the engine
- */
+void Engine::produceEnergy(int numOfPistons, int numOfValves, std::string engineType)
+{
+    int energy = numOfPistons * numOfValves;
+    std::cout << "The " << engineType << " engine produces " << energy << "btu of energy." << std::endl;    
+}
+
+void Engine::lubricateEngine(double availableOilInLitres)
+{
+    if (availableOilInLitres <= 0.3)
+    {
+        std::cout << "There is not enough oil to lubcricate the engine efficiently, please add more oil." << std::endl; 
+    }
+    else 
+    {
+        double newOilLevel = availableOilInLitres - 0.1;
+        std::cout << "The engine is lubricated with oil. There is " << newOilLevel << " litres of oil available after lubricating the engine." << std::endl;    
+    }
+}
+
+void Engine::burnFuel(double availableFuelInLitres, double engineRevs)
+{
+    double amountOfFuelRequired = engineRevs * 2;
+    double fuelBurnCalc = availableFuelInLitres - amountOfFuelRequired;
+
+    if (fuelBurnCalc <= 0) 
+    {
+        std::cout << "There is not enough fuel to burn!" << std::endl; 
+    }
+    else
+    {
+        std::cout << "BURN BABY BURN!" << std::endl; 
+    }
+}
 
 struct Exhaust
 {
-    // length in inches
     double lengthInInches = 15.4;
-    // turbo charger power
     double turboChargerPower = 4.5;
-    // catalytic converters
     int catalyticConverters = 1;
-    // muffler type
-    std::string mufflerType = "High Supression";
-    // number of pipes
+    std::string mufflerSuppressionType = "low";
     int pipes = 2;
 
-    // increase the power of the engine using a turbocharger
-    void turboChargeEngine(double turboChargerPower);
-    // reduce fumes using catalytic converters
-    void reduceFumes(int catalyticConverters = 1, bool performCatalyticConversion = true);
-    // reduce or increase the level of noise when reving the engine
-    void controlExhaustNoise(std::string mufflerType, float engineRevs, float noiseInDecibels);
+    void turboChargeEngine(double turboCharge);
+    void reduceFumes(int numOfCatalyticConverters = 1);
+    void controlExhaustNoise(std::string mufflerType, float engineRevs);
 };
 
-/*
-Thing 8) Fuel Tank
-5 properties:
-    1) capacity in litres // double
-    2) the type of fuel it can hold // string
-    3) the min amount of fuel it can hold before it starts to effect performance // double
-    4) capacity sensors // int
-    5) material // string
-3 things it can do:
-    1) notify the rider when it is low on fuel
-    2) notify the rider when the wrong type of fuel has been used
-    3) hold fuel
- */
+void Exhaust::turboChargeEngine(double turboCharge)
+{
+    double charge = turboCharge * 4;
+    std::cout << "The engine's output is turbocharged by " << charge << " of power!" << std::endl; 
+}
+
+void Exhaust::reduceFumes(int numOfCatalyticConverters)
+{
+    if (numOfCatalyticConverters > 0)
+    {
+        std::cout << "The catalytic converter is working to reduce fumes." << std::endl; 
+    }
+    else
+    {
+        std::cout << "There is no catalytic converter fitted on this vehicle." << std::endl; 
+    }
+}
+
+void Exhaust::controlExhaustNoise(std::string mufflerType, float engineRevs)
+{
+    if (engineRevs <= 9 || engineRevs > 20)
+    {
+        std::cout << "Please input a rev count between 10 and 20." << std::endl;
+    }
+    else
+    {
+        float noiseInDecibels = engineRevs * 10.f;
+
+        if (mufflerType == "high")
+        {
+            float highNoiseReduction = noiseInDecibels / 5.f;
+            std::cout << "The " << mufflerType << " suppression muffler is reducing the noise level at a rate of " << highNoiseReduction << "dbs." << std::endl; 
+        }
+        else
+        {
+            float lowNoiseReduction = noiseInDecibels / 15.f;
+            std::cout << "The " << mufflerType << " suppression muffler is reducing the noise at a rate of " << lowNoiseReduction << "dbs." << std::endl;
+        }
+    } 
+}
 
 struct FuelTank
 {
-    // capacity in litres
     double capacityInLitres = 8.5;
-    // the type of fuel it can hold
     std::string fuelType = "Unleaded";
-    // the min amount of fuel it can hold before it starts to effect performance
     double minimumFuelAmountInLitres = 1.0;
-    // capacity sensors
     int sensors = 4;
-    // material
     std::string material = "Steel";
 
-    // notify the rider when it is low on fuel
-    std::string notifyFuelAmountIsLow(double minimumfuelAmountInLitres = 0.5, bool fuelIsLowerThanMinimumAmount = true);
-    // notify the rider when the wrong type of fuel has been used
-    std::string notifyIncorrectFuelTypeUsed(std::string fuelType = "diesel", bool wrongFuelInTank = true);
-    // hold fuel
-    float trackFuelUsage(int sensors, double capacityInLitres, double previousFuelReading, double currentFuelReading);
+    void notifyFuelAmountIsLow(double fuelAmountInLitres);
+    void notifyIncorrectFuelTypeUsed(bool dieselUsed = true);
+    double trackFuelUsage(double previousFuelReading, double currentFuelReading);
 };
 
-/*
-Thing 9) Tyre
-5 properties:
-    1) type of material // string
-    2) thickness of the material // double
-    3) average lifespan in km travelled  // double
-    4) the manufacturer // string
-    5) the type of terrain the tyre is most suited for // string
-3 things it can do:
-    1) puncture
-    2) provide support for the bike
-    3) wear out over time
- */
+void FuelTank::notifyFuelAmountIsLow(double fuelAmountInLitres)
+{
+    if (fuelAmountInLitres <= 0.5)
+    {
+        std::cout << "Fuel is running low! Please add more fuel to the tank." << std::endl;
+    }  
+    else 
+    {
+        double fuelLeft  = fuelAmountInLitres - 0.5;
+        std::cout << "The fuel tank has "  << fuelLeft << " litres of fuel to burn before the 'Fuel is running low!' notification will appear." << std::endl;
+    }
+}
+
+void FuelTank::notifyIncorrectFuelTypeUsed(bool dieselUsed)
+{
+    if (dieselUsed == true)
+    {
+        std::cout << "The fuel tank has been filled with the wrong fuel type. Please seek immedieate assitance from a professional." << std::endl; 
+    }
+}
+
+double FuelTank::trackFuelUsage(double previousFuelReading, double currentFuelReading)
+{   
+    double fuelUsed = previousFuelReading - currentFuelReading;
+    std::cout << fuelUsed << " litres of fuel has been used since the last reading." << std::endl; 
+
+    if (currentFuelReading < 0.5)
+    {
+        notifyFuelAmountIsLow(currentFuelReading);
+    }
+    return fuelUsed;
+}
 
 struct Tyre
 {
-    // type of material // string
     std::string material = "Synthetic Rubber";
-    // thickness of the material // double
     double thicknessInInches = 22.5;
-    // average lifespan in km travelled  // double
     int lifespanInKm = 2500;
-    // the manufacturer // string
     double pressure = 14.2;
-    // the type of terrain the tyre is most suited for // string
     std::string terrain = "Road";    
 
-    // puncture
     void puncture(bool holeInTyre  = true);
-    // provide support for the bike
-    void supportBike(int tyres = 2);
-    // wear out over time
-    void wearOut(int lifespanInKm, int distanceTravelledInKm, std::string material, std::string terrain);
+    void coverWheel(int tyres = 2);
+    void wear(double lifespanInKm, double distanceTravelledInKm, std::string terrain);
 };
 
- /*
-Thing 10) Motorbike
-5 properties:
-    1) seat 
-    2) engine 
-    3) exhaust 
-    4) fuel tank 
-    5) tyre
-3 things it can do:
-    1) Move
-    2) Breakdown
-    3) Crash
- */
- 
+void Tyre::puncture(bool holeInTyre)
+{   
+    if (holeInTyre == true)
+    {
+        std::cout << "You have a puncture!" << std::endl; 
+    }  
+}
+
+void Tyre::coverWheel(int tyres)
+{
+    std::cout << "The " << tyres <<  " tyres cover the wheels protect the inner tubes." << std::endl; 
+}
+
+void Tyre::wear(double lifespanKm, double distanceTravelledInKm, std::string terrainType)
+{
+    double tyreLife = lifespanKm - distanceTravelledInKm;
+
+    if (terrainType == "road")
+    {
+        std::cout << "The tyre has approx. " << tyreLife << "km worth of wear before it needs to be replaced." << std::endl; 
+    }
+    else if (terrainType == "offroad")
+    {
+        std::cout << "The tyre has approx. " << tyreLife / 2 << "km worth of wear before it needs to be replaced." << std::endl; 
+    }
+    else
+    {
+        std::cout << "The tyre has approx. " << tyreLife / 3 << "km worth of wear before it needs to be replaced." << std::endl; 
+    }
+}
+
 struct Motorbike
 {
-    // seat
     Seat seat;
-    // engine 
     Engine engine;
-    // exhaust 
     Exhaust exhaust;
-    // fuel tank 
     FuelTank fuelTank;
-    // tyre 
     Tyre tyre;
 
-    // Move
     void move(std::string direction, int speed);
-    // Breakdown
     void breakdown(std::string areaOfIssue = "Engine");
-    // Crash
-    void crash(std::string causeOfCrash, bool isVehicleWrittenOff, int injuriesSustained);
+    void crash(int injuriesSustained);
 };
+
+void Motorbike::move(std::string direction, int speed)
+{
+    std::cout << "The motorbike moves " << direction << " with a speed of " << speed << "kmph." << std::endl; 
+}
+
+void Motorbike::breakdown(std::string areaOfIssue)
+{
+    std::cout << "The motorbike has broken down! The area of issue is the " << areaOfIssue <<  "." << std::endl; 
+}
+
+void Motorbike::crash(int injuriesSustained)
+{
+    if (injuriesSustained == 0)
+    {
+        std::cout << "The motorbike crashed! Luckily the rider escaped with no injuries." << std::endl; 
+    }
+    else if (injuriesSustained >= 1 && injuriesSustained <=3)
+    {
+        std::cout << "The motorbike crashed! Luckily the rider escaped with only a few injuries." << std::endl;
+    } 
+    else if (injuriesSustained >= 4)
+    {
+        std::cout << "The motorbike crashed! The rider sustained a number of injuries and must go to the hospital immediately." << std::endl;
+    }
+}
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -523,5 +691,6 @@ struct Motorbike
 #include <iostream>
 int main()
 {
+    
     std::cout << "good to go!" << std::endl;
 }
