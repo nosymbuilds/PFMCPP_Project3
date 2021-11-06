@@ -128,7 +128,7 @@ void run(int howFast, bool startWithLeftFoot);
         int stepSize()
     	{
             return 1;
-    	}
+        }
     };
 
 Foot leftFoot;
@@ -211,11 +211,11 @@ void Song::Artist::performSongLive(bool tour)
 {
     if (tour == true)
     {
-    std::cout << "The artist will perform the song live on tour." << std::endl;
+        std::cout << "The artist will perform the song live on tour." << std::endl;
     }
     else
     {
-    std::cout << "The artist will NOT perform the song live on tour." << std::endl;
+        std::cout << "The artist will NOT perform the song live on tour." << std::endl;
     }
 }
 
@@ -386,8 +386,9 @@ void Synth::filterAllFrequenciesAbove10k(bool moveHighCutFilterTo10k, bool adjus
             std::cout << "All frequencies above 10k have been cut." << std::endl;
         }   
     } 
-    else {
-            std::cout << "No filtering of frequencies performed." << std::endl;
+    else 
+    {
+        std::cout << "No filtering of frequencies performed." << std::endl;
     }       
 }
 
@@ -450,7 +451,6 @@ struct Engine
     std::string cyclinderHeadManufacturer = "Suzuki";
     int oilPans = 2;
     std::string engineBlockType = "combustion";
-
 
     void produceEnergy(int numOfPistons, int numOfValves, std::string engineType);
     void lubricateEngine(double availableOilInLitres = 0.9);
