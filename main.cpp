@@ -231,7 +231,7 @@ SoccerTeam::SoccerTeam()
 
 SoccerTeam::Player::Player()
 {
-	std::cout << "Player constructed" << std::endl;
+    std::cout << "Player constructed" << std::endl;
 }
 
 void SoccerTeam::trainSkills(Player player2, std::string skill)
@@ -302,7 +302,7 @@ struct Synth
 
 Synth::Synth()
 {
-	std::cout << "Synth constructed" << std::endl;
+    std::cout << "Synth constructed" << std::endl;
 }
 
 void Synth::outputMidi(int midiOutput)
