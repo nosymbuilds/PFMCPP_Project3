@@ -68,9 +68,6 @@ int main()
 
 //insert Example::main() into main() of user's repo.
 
-
-
-
 struct Song
 {
     struct Artist
@@ -81,6 +78,7 @@ struct Song
         int yearsActive = 25;
         std::string mostPopularSong = "Porcelain";
 
+        Artist();
         void performSongLive(bool tour = true);
         void recordSongInTheStudio(bool recordAlbum);
         void promoteSong(int numberOfInterviews, bool tvAppearances);
@@ -93,11 +91,22 @@ struct Song
     char key = 'a';
     int performingArtists = 4;
     std::string recordLabel = "Virgin";
-    
+
+    Song();
     void playSongOnRadio(int songDuration, float songTempo);
     void performSongLiveAtConcert(Artist artistB, std::string concert);
     void remixSong(std::string title, Artist artistC, std::string recordLabelSongIsSignedTo);
 };
+
+Song::Song()
+{
+    std::cout << "Song constructed" << std::endl;
+}
+
+Song::Artist::Artist()
+{
+    std::cout << "Artist constructed" << std::endl;
+}
 
 void Song::playSongOnRadio(int songDuration, float songTempo)
 {
@@ -158,10 +167,16 @@ struct Sandwich
     std::string condiment = "Mayo";
     int calories = 600;
 
+    Sandwich();
     void causeFoodPoisoning(bool uncookedMeat = true);
     void provideSatisfyingMeal(double levelOfSatisfaction, int calorieCount);
     void goMoldy(int daysWithoutStorage);
 };
+
+Sandwich::Sandwich()
+{
+    std::cout << "Sandwich constructed" << std::endl;
+}
 
 void Sandwich::causeFoodPoisoning(bool uncookedMeat)
 {
@@ -191,12 +206,11 @@ struct SoccerTeam
         std::string position = "Midfield";
         int gamesPlayed = 89;
 
+        Player();
         void assistGoal(bool passToStriker = true);
         void scoreGoal(bool shootAtGoal = true);
         void celebrateGoal(std::string celebrationType, bool scorerOfGoal);
     };
-
-    Player player1;
 
     int squadPlayers = 24;
     int averageAge = 28;
@@ -204,10 +218,21 @@ struct SoccerTeam
     int matchesPlayedThisSeason = 12;
     int currentLeaguePositionThisSeason = 4;
 
-    void trainSkills(Player player2, std::string skill);
-    void acquireInjury(Player player3, int daysToRecover);
+    SoccerTeam();
+    void trainSkills(Player player1, std::string skill);
+    void acquireInjury(Player player2, int daysToRecover);
     void receiveAward(std::string award);
 };
+
+SoccerTeam::SoccerTeam()
+{
+    std::cout << "SoccerTeam constructed" << std::endl;
+}
+
+SoccerTeam::Player::Player()
+{
+    std::cout << "Player constructed" << std::endl;
+}
 
 void SoccerTeam::trainSkills(Player player2, std::string skill)
 {
@@ -233,8 +258,7 @@ void SoccerTeam::Player::assistGoal(bool passToStriker)
     else
     {
         std::cout << "The striker was ready to receive the ball but a pass was not made to them." << std::endl;
-    }
-    
+    } 
 }
 
 void SoccerTeam::Player::scoreGoal(bool shootAtGoal)
@@ -269,11 +293,17 @@ struct Synth
     int outputs = 2;
     std::string effectType = "Delay";
 
+    Synth();
     void outputMidi(int midiOutput);
     void filterAllFrequenciesAbove10k(bool moveHighCutFilterTo10k = true, bool adjustQFactor = true);
     void loadPresets(std::string presetBankName = "All");
 
 };
+
+Synth::Synth()
+{
+    std::cout << "Synth constructed" << std::endl;
+}
 
 void Synth::outputMidi(int midiOutput)
 {
@@ -312,10 +342,16 @@ struct Seat
     double comfortRating = 6.5;
     double safetyRating = 9.5;
 
+    Seat();
     void seatRiders(int riders);
     void adjustSeatPosition(float moveVertically, float moveHorizontally);
     void heatSeat(float currentSeatTemp, float targetSeatTemp);
 };
+
+Seat::Seat()
+{
+    std::cout << "Seat constructed" << std::endl;
+}
 
 void Seat::seatRiders(int numOfRiders)
 {
@@ -359,10 +395,16 @@ struct Engine
     int oilPans = 2;
     std::string engineBlockType = "combustion";
 
+    Engine();
     void produceEnergy(int numOfPistons, int numOfValves, std::string engineType);
     void lubricateEngine(double availableOilInLitres = 0.9);
     void burnFuel(double availableFuelInLitres, double engineRevs);
 };
+
+Engine::Engine()
+{
+    std::cout << "Engine constructed" << std::endl;
+}
 
 void Engine::produceEnergy(int numOfPistons, int numOfValves, std::string engineType)
 {
@@ -406,10 +448,16 @@ struct Exhaust
     std::string mufflerSuppressionType = "low";
     int pipes = 2;
 
+    Exhaust();
     void turboChargeEngine(double turboCharge);
     void reduceFumes(int numOfCatalyticConverters = 1);
     void controlExhaustNoise(std::string mufflerType, float engineRevs);
 };
+
+Exhaust::Exhaust()
+{
+    std::cout << "Exhaust constructed" << std::endl;
+}
 
 void Exhaust::turboChargeEngine(double turboCharge)
 {
@@ -460,10 +508,16 @@ struct FuelTank
     int sensors = 4;
     std::string material = "Steel";
 
+    FuelTank();
     void notifyFuelAmountIsLow(double fuelAmountInLitres);
     void notifyIncorrectFuelTypeUsed(bool dieselUsed = true);
     double trackFuelUsage(double previousFuelReading, double currentFuelReading);
 };
+
+FuelTank::FuelTank()
+{
+    std::cout << "FuelTank constructed" << std::endl;
+}
 
 void FuelTank::notifyFuelAmountIsLow(double fuelAmountInLitres)
 {
@@ -504,12 +558,18 @@ struct Tyre
     double thicknessInInches = 22.5;
     int lifespanInKm = 2500;
     double pressure = 14.2;
-    std::string terrain = "Road";    
+    std::string terrain = "Road";   
 
+    Tyre();
     void puncture(bool holeInTyre  = true);
     void coverWheel(int tyres = 2);
     void wear(double lifespanInKm, double distanceTravelledInKm, std::string terrain);
 };
+
+Tyre::Tyre()
+{
+    std::cout << "Tyre constructed" << std::endl;
+}
 
 void Tyre::puncture(bool holeInTyre)
 {   
@@ -521,7 +581,7 @@ void Tyre::puncture(bool holeInTyre)
 
 void Tyre::coverWheel(int tyres)
 {
-    std::cout << "The " << tyres <<  " tyres cover the wheels protect the inner tubes." << std::endl; 
+    std::cout << "The " << tyres <<  " tyres cover the wheels to protect the inner tubes." << std::endl; 
 }
 
 void Tyre::wear(double lifespanKm, double distanceTravelledInKm, std::string terrainType)
@@ -550,10 +610,16 @@ struct Motorbike
     FuelTank fuelTank;
     Tyre tyre;
 
+    Motorbike();
     void move(std::string direction, int speed);
     void breakdown(std::string areaOfIssue = "Engine");
     void crash(int injuriesSustained);
 };
+
+Motorbike::Motorbike()
+{
+    std::cout << "Motorbike constructed" << std::endl;
+}
 
 void Motorbike::move(std::string direction, int speed)
 {
@@ -600,6 +666,77 @@ int main()
 {
     Example::main();
     
+    Song songA;
+    Song::Artist artistA;
+    songA.playSongOnRadio(5, 125.4f);
+    songA.performSongLiveAtConcert(artistA, "Glastonbury");
+    songA.remixSong("WAP", artistA, "Atlantic");
+    artistA.performSongLive();
+    artistA.recordSongInTheStudio(false);
+    artistA.promoteSong(20, true);
+    std::cout << songA.recordLabel << std::endl;
+
+    Sandwich salamiSandwich;
+    salamiSandwich.goMoldy(2);
+    salamiSandwich.provideSatisfyingMeal(5.5, 642);
+    salamiSandwich.causeFoodPoisoning(true);
+    std::cout << salamiSandwich.filling << std::endl;
+
+    SoccerTeam team1;
+    SoccerTeam::Player player1;
+    team1.trainSkills(player1, "dribbling");
+    team1.acquireInjury(player1, 10);
+    team1.receiveAward("Team of the Month");
+    player1.scoreGoal(true);
+    player1.assistGoal(true);
+    player1.celebrateGoal("backflip", true);
+    std::cout << team1.squadPlayers << std::endl;
+    std::cout << player1.gamesPlayed << std::endl;
+
+    Synth juno;
+    juno.outputMidi(2);
+    juno.filterAllFrequenciesAbove10k();
+    juno.filterAllFrequenciesAbove10k(true, true);
+    juno.filterAllFrequenciesAbove10k(true, false);
+    juno.filterAllFrequenciesAbove10k(false, false);
+    juno.loadPresets("Pads");
+    std::cout << juno.presets << std::endl;
+
+    Seat seat1;
+    seat1.seatRiders(0);
+    seat1.adjustSeatPosition(0.2f, 0.0f);
+    seat1.heatSeat(20.f, 29.7f);
+    std::cout << seat1.outerMaterial << std::endl;
+
+    Engine engine1;
+    engine1.produceEnergy(4, 8, "combustion");
+    engine1.lubricateEngine(0.9);
+    engine1.burnFuel(4.2, 1.4);
+    std::cout << engine1.cyclinderHeadManufacturer << std::endl;
+
+    Exhaust exhaust1;
+    exhaust1.turboChargeEngine(2.2);
+    exhaust1.reduceFumes(3);
+    exhaust1.controlExhaustNoise("high", 15);
+    std::cout << exhaust1.turboChargerPower<< std::endl;
+
+    FuelTank fuelTank1;
+    fuelTank1.notifyFuelAmountIsLow(0.2);
+    fuelTank1.notifyIncorrectFuelTypeUsed();
+    fuelTank1.trackFuelUsage(8.1, 0.4);
+    std::cout << fuelTank1.material << std::endl;
+
+    Tyre tyre1;
+    tyre1.puncture();
+    tyre1.coverWheel(2);
+    tyre1.wear(95.0, 47.5, "jungle");
+    std::cout << tyre1.terrain << std::endl;
+    
+    Motorbike motorbike1;
+    motorbike1.move("forwards", 40);
+    motorbike1.breakdown("breaks");
+    motorbike1.crash(2);
+    std::cout << motorbike1.engine.valves << std::endl;
     
     std::cout << "good to go!" << std::endl;
 }
