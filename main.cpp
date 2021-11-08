@@ -69,7 +69,7 @@ struct Song
     void remixSong(std::string title, Artist artistC, std::string recordLabelSongIsSignedTo);
 };
 
-Song::Song() : duration(5), tempo(125), key('c'), performingArtists(1), recordLabel("Virgin")
+Song::Song() : duration(5), tempo(125.f), key('c'), performingArtists(1), recordLabel("Virgin")
 {
     std::cout << "Song constructed" << std::endl;
 }
@@ -81,7 +81,8 @@ Song::Artist::Artist() : name("Moby"), age(50), nationality("American"), yearsAc
 
 void Song::playSongOnRadio(int songDuration, float songTempo)
 {
-    std::cout << "The song is playing on the radio for " << songDuration << " minutes, at the tempo of " << songTempo << " bpm" << std::endl;
+    std::cout << "The original tempo for this song is " << tempo << "bpm." << std::endl;
+    std::cout << "The song is playing on the radio for " << songDuration << " minutes. The original and has been adjusted to play at the tempo of " << songTempo << " bpm." << std::endl;
 }
 
 void Song::performSongLiveAtConcert(Artist artistB, std::string concert)
@@ -144,9 +145,9 @@ struct Sandwich
     void goMoldy(int daysWithoutStorage);
 };
 
-Sandwich::Sandwich() : bread("Bread"), numOfFillings(1), filling("Egg"), condiment("Mayo"), calories(500)
+Sandwich::Sandwich() : bread("white"), numOfFillings(1), filling("egg"), condiment("mayo"), calories(500)
 {
-    std::cout << "Sandwich constructed" << std::endl;
+    std::cout << "Sandwich constructed using " << bread << " bread." << std::endl;
 }
 
 void Sandwich::causeFoodPoisoning(bool uncookedMeat)
@@ -307,9 +308,9 @@ void Synth::loadPresets(std::string presetBankName)
 
 struct Seat
 {
-    std::string outerMaterial = "Leather";
-    std::string paddingMaterial = "Polyethylene Foam";
-    int riders = 1;
+    std::string outerMaterial = "leather";
+    std::string paddingMaterial = "polyethylene foam";
+    int riders;
     double comfortRating = 6.5;
     double safetyRating = 9.5;
 
@@ -317,11 +318,13 @@ struct Seat
     void seatRiders(int riders);
     void adjustSeatPosition(float moveVertically, float moveHorizontally);
     void heatSeat(float currentSeatTemp, float targetSeatTemp);
+
+    void print();
 };
 
-Seat::Seat()
+Seat::Seat() : riders(0)
 {
-    std::cout << "Seat constructed" << std::endl;
+    std::cout << "Seat constructed using " << outerMaterial << " and " << paddingMaterial << std::endl;
 }
 
 void Seat::seatRiders(int numOfRiders)
@@ -487,7 +490,7 @@ struct FuelTank
 
 FuelTank::FuelTank()
 {
-    std::cout << "FuelTank constructed" << std::endl;
+    std::cout << "FuelTank constructed with a overall capacity of " << capacityInLitres << " litres." << std::endl;
 }
 
 void FuelTank::notifyFuelAmountIsLow(double fuelAmountInLitres)
@@ -639,7 +642,7 @@ int main()
     
     Song songA;
     Song::Artist artistA;
-    songA.playSongOnRadio(5, 125.4f);
+    songA.playSongOnRadio(5, 126.2f);
     songA.performSongLiveAtConcert(artistA, "Glastonbury");
     songA.remixSong("WAP", artistA, "Atlantic");
     artistA.performSongLive();
