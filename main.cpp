@@ -573,8 +573,8 @@ void Engine::firePiston()
     int i = 0;
     while(i < pistons)
     {  
-    std::cout << "Fire piston " << i + 1 << std::endl;
-    i++;
+        std::cout << "Fire piston " << i + 1 << std::endl;
+        i++;
     }
 
     std::cout << "All pistons firing!" << std::endl;
@@ -782,7 +782,6 @@ void Tyre::wear(double lifespanKm, double distanceTravelledInKm, std::string ter
 void Tyre::pump(double newPressure)
 {
     double previousPressure = pressure;
-    //double pressureChange = newPressure - pressure;
 
     if(newPressure - pressure >= 0)
     {
