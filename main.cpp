@@ -137,7 +137,7 @@ void Song::syncToAdvert(int offer)
     }
     else
     {
-        for(int i = 0; i + offer <= minimumFee + 1; i++)
+        for(int i = 0; i + offer <= minimumFee + 1; ++i)
         {  
             if (i + offer > minimumFee)
             {
@@ -191,9 +191,9 @@ void Song::Artist::makeAHit(std::string songName, int sales)
 {
     int salesCount = 0;
 
-    for(int i = 0; i <= sales ; i++)
+    for(int i = 0; i <= sales ; ++i)
     {   
-        salesCount += 1;
+        ++salesCount;
     }
 
     if(salesCount > salesRecord)
@@ -250,7 +250,7 @@ void Sandwich::eat(int bitesToEat)
 {
     int caloriesPerBite = calories / bitesToEat;
  
-    for(int i = 0; i + 1 <= bitesToEat; i++)
+    for(int i = 0; i + 1 <= bitesToEat; ++i)
     {
         if(bitesToEat - (i + 1) == bitesToEat / 2)
             std::cout << "You are halfway through eating your sandwich!" << std::endl;
@@ -327,9 +327,9 @@ void SoccerTeam::receiveAward(std::string award)
 
 void SoccerTeam::sellPlayers(int playersSold)
 {
-    for(int i = 0; i <= playersSold - 1 ; i++)
+    for(int i = 0; i <= playersSold - 1 ; ++i)
     {   
-        squadPlayers -= 1; 
+        --squadPlayers; 
     }
 
     if(squadPlayers <= 0)
@@ -380,9 +380,9 @@ void SoccerTeam::Player::celebrateGoal(std::string celebrationType, bool scorerO
 
 void SoccerTeam::Player::playGames(int numOfGames)
 {   
-    for(int i = 0; i <= numOfGames ; i++)
+    for(int i = 0; i <= numOfGames ; ++i)
     {   
-        gamesPlayed += 1;
+        ++gamesPlayed;
     }
 
     std::cout << "The new total number of games played by " << name << " is " << gamesPlayed << std::endl;
@@ -440,7 +440,7 @@ void Synth::loadPresets(std::string presetBankName)
 
 void Synth::loadEffects(int numOfEffects)
 {   
-    for(int i = 0; i <= numOfEffects - 1 ; i++)
+    for(int i = 0; i <= numOfEffects - 1 ; ++i)
     {
         std::cout << "Effect " << i + 1 << " loaded and ready to use." << std::endl;
         effectsLoaded++;
@@ -574,7 +574,7 @@ void Engine::firePiston()
     while(i < pistons)
     {  
         std::cout << "Fire piston " << i + 1 << std::endl;
-        i++;
+        ++i;
     }
 
     std::cout << "All pistons firing!" << std::endl;
@@ -722,7 +722,7 @@ void FuelTank::activateSensor()
     while(i < sensors)
     {  
         std::cout << "Activated sensor " << i + 1 << std::endl;
-        i++; 
+        ++i; 
     }
    
     std::cout << "All sensors activated!" << std::endl;
@@ -857,7 +857,7 @@ void Motorbike::buy(int bikesPurchased)
     }
     else
     {
-        for(int i = 0; i < bikesPurchased; i++)
+        for(int i = 0; i < bikesPurchased; ++i)
         {
             garage[i] = std::string("Motorbike");
             std::cout << "You stored " << garage[i] << i + 1 << " in your garage." << std::endl;
@@ -977,7 +977,7 @@ int main()
     tyre1.coverWheel(2);
     tyre1.wear(95.0, 47.5, "jungle");
     std::cout << tyre1.terrain << std::endl;
-    tyre1.pump(9.0);
+    tyre1.pump(9.2);
 
     std::cout << std::endl;
     
@@ -985,7 +985,7 @@ int main()
     motorbike1.move("forwards", 40);
     motorbike1.breakdown("breaks");
     motorbike1.crash(2);
-    motorbike1.buy(6);
+    motorbike1.buy(4);
     std::cout << motorbike1.engine.valves << std::endl;
 
     std::cout << std::endl;
