@@ -29,7 +29,6 @@ Create a branch named Part5
  */
 
 #include <iostream>
-#include <array>
 namespace Example 
 {
 struct Bar 
