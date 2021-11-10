@@ -442,7 +442,7 @@ void Synth::loadEffects(int numOfEffects)
 {   
     for(int i = 0; i <= numOfEffects - 1 ; ++i)
     {
-        std::cout << "Effect " << ++i << " loaded and ready to use." << std::endl;
+        std::cout << "Effect " << i + 1 << " loaded and ready to use." << std::endl;
         ++effectsLoaded;
     }
 }
