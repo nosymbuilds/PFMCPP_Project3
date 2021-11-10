@@ -29,6 +29,7 @@ Create a branch named Part5
  */
 
 #include <iostream>
+#include <array>
 namespace Example 
 {
 struct Bar 
@@ -442,8 +443,8 @@ void Synth::loadEffects(int numOfEffects)
 {   
     for(int i = 0; i <= numOfEffects - 1 ; ++i)
     {
-        std::cout << "Effect " << i + 1 << " loaded and ready to use." << std::endl;
-        effectsLoaded++;
+        std::cout << "Effect " << ++i << " loaded and ready to use." << std::endl;
+        ++effectsLoaded;
     }
 }
 
@@ -849,8 +850,6 @@ void Motorbike::crash(int injuriesSustained)
 
 void Motorbike::buy(int bikesPurchased)
 {
-    std::string garage[5];
-
     if(bikesPurchased > 5)
     {
         std::cout << "You dont have room to store more than 5 bikes!" << std::endl;
@@ -859,8 +858,7 @@ void Motorbike::buy(int bikesPurchased)
     {
         for(int i = 0; i < bikesPurchased; ++i)
         {
-            garage[i] = std::string("Motorbike");
-            std::cout << "You stored " << garage[i] << i + 1 << " in your garage." << std::endl;
+            std::cout << "You stored Motorbike" << i + 1 << " in your garage." << std::endl;
         }
     }   
 }
